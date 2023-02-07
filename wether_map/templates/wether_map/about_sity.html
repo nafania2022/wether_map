@@ -1,0 +1,16 @@
+{% extends 'wether_map/base.html' %}
+{% block text %}
+<div class="col-5 offset-1 "> 
+    <h3>Информация</h3>
+    <div class="alert alert-info">
+        <div class="row ">
+            <div class="col-8">
+                <b>Город:</b>{{sity_info.sity}}<br>
+                <b>Погода:</b>{{sity_info.temp}}<br>
+                <b>Ветер:</b>{{sity_info.wind}}<br>
+                <img src="https://openweathermap.org/img/w/{{sity_info.icon}}.png" class="img-img-thumbnail">                        
+            </div>
+        </div>
+    </div>                     
+</div>  
+{% endblock  %}

@@ -1,0 +1,37 @@
+{% extends 'wether_map/base.html' %}
+
+
+{% block text %}
+
+<div class="container mt-5">
+    <div class=" row">
+        <div class=" col-5 offset-1">
+            <form action="/" method = "post">  
+                {% csrf_token %}                 
+                <div class="row">
+                <label for="sity">Город</label>  
+                {{form.name}}                                  
+                <input type="submit" class="mt-2 btn btn-danger" name= "send" value ="Узнать">                            
+                </div>
+            </form>  
+        </div>
+        <div class="col-5 offset-1 "> 
+            <h3>Информация</h3>
+            {% for info in sity_all %}
+            
+            <div class="alert alert-info">
+                <div class="row ">
+                    <div class="col-8">
+                        <b>Город:</b><a href="{{info.sity.get_absolute_url}}">{{info.sity.name}}</a><br>
+                        <b>Погода:</b>{{info.temp}}<br>
+                        <img src="https://openweathermap.org/img/w/{{info.icon}}.png" class="img-img-thumbnail">                        
+                    </div>
+                </div>
+            </div>
+            
+            {% endfor %}                        
+        </div>        
+    </div> 
+</div>         
+
+{% endblock text %}
